@@ -1,0 +1,3277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goshen Cake Haven - Delicious Cakes in Maseno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fff9f0;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Cake Pattern Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 223, 186, 0.3) 0%, transparent 20%),
+                radial-gradient(circle at 90% 70%, rgba(255, 223, 186, 0.3) 0%, transparent 25%),
+                radial-gradient(circle at 30% 80%, rgba(255, 223, 186, 0.25) 0%, transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(255, 223, 186, 0.25) 0%, transparent 25%),
+                repeating-linear-gradient(45deg, rgba(255, 223, 186, 0.1) 0px, rgba(255, 223, 186, 0.1) 2px, transparent 2px, transparent 10px),
+                repeating-linear-gradient(135deg, rgba(255, 223, 186, 0.1) 0px, rgba(255, 223, 186, 0.1) 2px, transparent 2px, transparent 10px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Additional cake decorations */
+        .cake-decoration {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cake-decoration-2 {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            font-size: 4rem;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 70%;
+        }
+
+        /* Hero Section with Video */
+        .hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 5%;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Cake Size Selector */
+        .cake-size-selector {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .size-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .size-option {
+            background: #fff9f0;
+            border: 2px solid #8b5a2b;
+            border-radius: 10px;
+            padding: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .size-option:hover {
+            background: #8b5a2b;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .size-option.selected {
+            background: #8b5a2b;
+            color: white;
+            border-color: #ff6b6b;
+        }
+
+        .size-option .weight {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .size-option .price {
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Featured Cakes Section */
+        .featured-cakes {
+            padding: 5rem 5%;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8b5a2b;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5a2b, #ff6b6b);
+            border-radius: 3px;
+        }
+
+        .cake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cake-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(139, 90, 43, 0.1);
+        }
+
+        .cake-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(139, 90, 43, 0.3);
+        }
+
+        .cake-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cake-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .cake-card:hover .cake-image img {
+            transform: scale(1.1);
+        }
+
+        .cake-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .cake-info h3 {
+            font-size: 1.5rem;
+            color: #8b5a2b;
+            margin-bottom: 0.5rem;
+        }
+
+        .cake-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cake-details {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .cake-detail-item {
+            background: #fff9f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #8b5a2b;
+            border: 1px solid #8b5a2b;
+        }
+
+        /* Price Table */
+        .price-table {
+            background: #fff9f0;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 2px dashed #8b5a2b;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-row .size {
+            font-weight: bold;
+            color: #8b5a2b;
+        }
+
+        .price-row .price {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .price-row .price::before {
+            content: 'KSh ';
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .order-now-btn {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        .order-now-btn:hover {
+            background: linear-gradient(135deg, #a9754b 0%, #8b5a2b 100%);
+            transform: scale(0.98);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(255, 249, 240, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+            backdrop-filter: blur(5px);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139, 90, 43, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 90, 43, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 {
+            color: #8b5a2b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(139, 90, 43, 0.1);
+        }
+
+        .contact-info {
+            padding: 1.5rem;
+        }
+
+        .contact-info h3 {
+            color: #8b5a2b;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-details h4 {
+            color: #333;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .contact-details a {
+            color: #8b5a2b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #ff6b6b;
+        }
+
+        .location-highlight {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .location-highlight i {
+            margin-right: 0.5rem;
+        }
+
+        .contact-form {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8b5a2b;
+            box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #a9754b 0%, #8b5a2b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c1810 0%, #3d2a1c 100%);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                line-height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .size-options {
+                grid-template-columns: 1fr;
+            }
+
+            .cake-details {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .cake-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Active link state */
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e0d5c5 0%, #d4c5b2 100%);
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5a2b;
+            font-weight: bold;
+            border: 2px dashed #8b5a2b;
+        }
+
+        /* Video fallback message */
+        .video-fallback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            z-index: 2;
+        }
+
+        /* Price List Badge */
+        .price-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* Modal for cake details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 20px;
+            animation: modalFadeIn 0.5s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8b5a2b;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #ff6b6b;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: #8b5a2b;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .modal-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-detail-item {
+            background: #fff9f0;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-detail-label {
+            font-weight: bold;
+            color: #8b5a2b;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-detail-value {
+            color: #ff6b6b;
+        }
+
+        .modal-price-table {
+            margin: 1.5rem 0;
+        }
+
+        .modal-price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-price-row:last-child {
+            border-bottom: none;
+        }
+
+        .view-details-btn {
+            background: transparent;
+            border: 2px solid #8b5a2b;
+            color: #8b5a2b;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .view-details-btn:hover {
+            background: #8b5a2b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cake Background Decorations -->
+    <div class="cake-decoration">🍰</div>
+    <div class="cake-decoration-2">🎂</div>
+
+    <nav>
+        <div class="logo">🍰 Goshen Cake Haven</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#cakes">Cakes</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero">
+            <!-- Video Background -->
+            <video id="hero-video" autoplay muted loop playsinline>
+                <source src="https://player.vimeo.com/external/371837261.sd.mp4?s=5b2c9f47d9a6a2b6e3f3c3f3c3f3c3f3&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+            
+            <div class="video-fallback" id="videoFallback" style="display: none;">
+                <p>Experience our delicious cakes in person at Maseno! 🍰</p>
+            </div>
+            
+            <div class="hero-content">
+                <h1>Welcome to Goshen Cake Haven</h1>
+                <p>Maseno's Finest Bakery - Where every slice is a taste of heaven! ✨</p>
+                <a href="#cakes" class="cta-button">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="whatsapp-float" id="whatsappButton" target="_blank">
+        <i>📱</i>
+    </a>
+
+    <!-- Modal for Cake Details -->
+    <div id="cakeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="Cake">
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <p id="modalDescription" class="modal-description"></p>
+            
+            <div id="modalDetails" class="modal-details"></div>
+            
+            <h3 style="color: #8b5a2b; margin-bottom: 1rem;">Price List</h3>
+            <div id="modalPriceTable" class="modal-price-table"></div>
+            
+            <button id="modalOrderBtn" class="order-now-btn" style="margin-top: 1.5rem;">Order Now via WhatsApp</button>
+        </div>
+    </div>
+
+    <section id="cakes" class="featured-cakes">
+        <h2 class="section-title">Our Heavenly Creations</h2>
+        <div class="cake-grid">
+            <!-- Cake 1: Divine Chocolate -->
+            <div class="cake-card" id="cake1">
+                <div class="price-badge">Best Seller</div>
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Chocolate Cake">
+                </div>
+                <div class="cake-info">
+                    <h3>🍫 Divine Chocolate</h3>
+                    <p class="cake-description">Rich, moist chocolate cake with velvety ganache. Perfect for chocolate lovers!</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">🍫 Belgian Chocolate</span>
+                        <span class="cake-detail-item">🥚 Free-range Eggs</span>
+                        <span class="cake-detail-item">🌿 Vanilla Essence</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Divine Chocolate">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake1")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Divine Chocolate">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 2: Red Velvet Dream -->
+            <div class="cake-card" id="cake2">
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=800&q=80" alt="Red Velvet">
+                </div>
+                <div class="cake-info">
+                    <h3>❤️ Red Velvet Dream</h3>
+                    <p class="cake-description">Classic red velvet with cream cheese frosting. A perfect balance of sweetness and tanginess.</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">❤️ Red Velvet Color</span>
+                        <span class="cake-detail-item">🧀 Cream Cheese</span>
+                        <span class="cake-detail-item">🌿 Natural Flavor</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Red Velvet Dream">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake2")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Red Velvet Dream">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 3: Celebration Special -->
+            <div class="cake-card" id="cake3">
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80" alt="Birthday Cake">
+                </div>
+                <div class="cake-info">
+                    <h3>🎉 Celebration Special</h3>
+                    <p class="cake-description">Colorful sprinkles and vanilla buttercream. Perfect for birthdays and special occasions!</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">🎨 Colorful Sprinkles</span>
+                        <span class="cake-detail-item">🧁 Vanilla Buttercream</span>
+                        <span class="cake-detail-item">🕯️ Candle Included</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Celebration Special">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake3")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Celebration Special">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 4: Fresh Fruit Fantasy -->
+            <div class="cake-card" id="cake4">
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=800&q=80" alt="Fruit Cake">
+                </div>
+                <div class="cake-info">
+                    <h3>🍓 Fresh Fruit Fantasy</h3>
+                    <p class="cake-description">Light sponge topped with fresh seasonal fruits. A healthy and delicious choice!</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">🍓 Fresh Strawberries</span>
+                        <span class="cake-detail-item">🍌 Fresh Bananas</span>
+                        <span class="cake-detail-item">🍊 Citrus Zest</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Fresh Fruit Fantasy">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake4")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Fresh Fruit Fantasy">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎂</div>
+                <h3>Custom Cakes</h3>
+                <p>Personalized cakes for any occasion - birthdays, weddings, anniversaries</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Free Delivery</h3>
+                <p>Complimentary delivery within Maseno for orders above KSh 2,000</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Cake Design</h3>
+                <p>Work with our expert bakers to create your dream cake</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎉</div>
+                <h3>Catering</h3>
+                <p>Full dessert catering for events and parties in Maseno</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p><a href="tel:0708594216">0708 594 216</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p><a href="mailto:goshencakehaven@gmail.com">goshencakehaven@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h4>WhatsApp</h4>
+                        <p><a href="#" id="whatsappContactLink">Chat on WhatsApp</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <p><strong>Maseno Town</strong><br>Near Maseno Main Campus<br>Along Kisumu-Busia Highway</p>
+                    </div>
+                </div>
+                <div class="location-highlight">
+                    <i>📍</i> Just 2 minutes from Maseno Main Campus!
+                </div>
+                <div class="map-placeholder">
+                    🗺️ Google Maps Location - Maseno Town, Near Main Campus
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div class="contact-details">
+                        <h4>Hours</h4>
+                        <p>Mon-Sat: 8am - 8pm<br>Sunday: 10am - 4pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Goshen Cake Haven - Maseno Town | Near Maseno Main Campus, Along Kisumu-Busia Highway</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Where every cake is baked with love ❤️ in Maseno</p>
+    </footer>
+
+    <!-- JavaScript Code -->
+    <script>
+        // ========== MOBILE MENU TOGGLE ==========
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // ========== SMOOTH SCROLL FOR NAVIGATION ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // ========== HIGHLIGHT ACTIVE NAVIGATION LINK ==========
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ========== WHATSAPP INTEGRATION ==========
+        const phoneNumber = '0717563725';
+        const formattedPhone = '254' + phoneNumber.substring(1);
+
+        function openWhatsApp(message = '') {
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Floating WhatsApp button
+        document.getElementById('whatsappButton').addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsApp('Hello Goshen Cake Haven! I would like to inquire about your cakes. 🍰');
+        });
+
+        // WhatsApp link in contact section
+        document.getElementById('whatsappContactLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsApp('Hello Goshen Cake Haven! I saw your website and would like to know more about your products.');
+        });
+
+        // ========== SIZE SELECTOR FUNCTIONALITY ==========
+        document.querySelectorAll('.size-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('.size-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        // ========== CAKE DETAILS MODAL ==========
+        const modal = document.getElementById('cakeModal');
+        const closeModal = document.querySelector('.close-modal');
+
+        // Cake data for modal
+        const cakeData = {
+            cake1: {
+                title: '🍫 Divine Chocolate',
+                image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
+                description: 'Our signature Divine Chocolate cake is a chocolate lover\'s paradise! Made with premium Belgian chocolate, this cake features three layers of moist chocolate sponge, filled with rich chocolate ganache, and covered in a silky smooth chocolate buttercream. Each bite is an explosion of deep, rich chocolate flavor that melts in your mouth.',
+                details: [
+                    { label: 'Flavor', value: 'Belgian Chocolate' },
+                    { label: 'Filling', value: 'Chocolate Ganache' },
+                    { label: 'Frosting', value: 'Chocolate Buttercream' },
+                    { label: 'Shelf Life', value: '3-4 days refrigerated' },
+                    { label: 'Allergens', value: 'Contains gluten, dairy, eggs' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            },
+            cake2: {
+                title: '❤️ Red Velvet Dream',
+                image: 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=800&q=80',
+                description: 'Our Red Velvet Dream is a classic Southern favorite with a hint of cocoa and a striking red color. The cake is incredibly moist and tender, with a subtle tang from buttermilk and a hint of vanilla. It\'s paired with our signature cream cheese frosting that\'s perfectly sweet and tangy, creating a beautiful balance of flavors.',
+                details: [
+                    { label: 'Flavor', value: 'Red Velvet with Cocoa' },
+                    { label: 'Filling', value: 'Cream Cheese Frosting' },
+                    { label: 'Frosting', value: 'Cream Cheese' },
+                    { label: 'Shelf Life', value: '3-4 days refrigerated' },
+                    { label: 'Allergens', value: 'Contains gluten, dairy, eggs' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            },
+            cake3: {
+                title: '🎉 Celebration Special',
+                image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80',
+                description: 'Make your celebration extra special with our Celebration Special cake! This fun and festive cake features a light and fluffy vanilla sponge, layered with silky vanilla buttercream, and covered in colorful sprinkles. It\'s the perfect centerpiece for birthdays, anniversaries, or any happy occasion. Each cake comes with a complimentary birthday candle.',
+                details: [
+                    { label: 'Flavor', value: 'Vanilla' },
+                    { label: 'Filling', value: 'Vanilla Buttercream' },
+                    { label: 'Topping', value: 'Rainbow Sprinkles' },
+                    { label: 'Shelf Life', value: '3-4 days refrigerated' },
+                    { label: 'Extras', value: 'Free candle included' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            },
+            cake4: {
+                title: '🍓 Fresh Fruit Fantasy',
+                image: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=800&q=80',
+                description: 'Our Fresh Fruit Fantasy is a light and refreshing option for fruit lovers! The cake features a delicate vanilla sponge, layered with light whipped cream, and topped with an abundance of fresh seasonal fruits including strawberries, blueberries, kiwis, and mangoes. It\'s the perfect choice for those who prefer a less sweet, more natural dessert option.',
+                details: [
+                    { label: 'Flavor', value: 'Vanilla with Fresh Fruits' },
+                    { label: 'Filling', value: 'Whipped Cream' },
+                    { label: 'Topping', value: 'Assorted Fresh Fruits' },
+                    { label: 'Shelf Life', value: '2-3 days refrigerated' },
+                    { label: 'Seasonal', value: 'Fruits vary by season' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            }
+        };
+
+        // Function to show cake details in modal
+        window.showCakeDetails = function(cakeId) {
+            const cake = cakeData[cakeId];
+            
+            document.getElementById('modalImage').src = cake.image;
+            document.getElementById('modalTitle').textContent = cake.title;
+            document.getElementById('modalDescription').textContent = cake.description;
+            
+            // Display details
+            const detailsContainer = document.getElementById('modalDetails');
+            detailsContainer.innerHTML = '';
+            cake.details.forEach(detail => {
+                const detailDiv = document.createElement('div');
+                detailDiv.className = 'modal-detail-item';
+                detailDiv.innerHTML = `
+                    <div class="modal-detail-label">${detail.label}</div>
+                    <div class="modal-detail-value">${detail.value}</div>
+                `;
+                detailsContainer.appendChild(detailDiv);
+            });
+            
+            // Display price table
+            const priceContainer = document.getElementById('modalPriceTable');
+            priceContainer.innerHTML = '';
+            cake.prices.forEach(price => {
+                const priceRow = document.createElement('div');
+                priceRow.className = 'modal-price-row';
+                priceRow.innerHTML = `
+                    <span>${price.size}</span>
+                    <span style="color: #ff6b6b; font-weight: bold;">KSh ${price.price}</span>
+                `;
+                priceContainer.appendChild(priceRow);
+            });
+            
+            modal.style.display = 'block';
+        };
+
+        // Close modal when clicking X
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        };
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        // Modal order button
+        document.getElementById('modalOrderBtn').addEventListener('click', function() {
+            const cakeTitle = document.getElementById('modalTitle').textContent;
+            openWhatsApp(`Hello Goshen Cake Haven! I would like to order ${cakeTitle}. Please provide more information.`);
+            modal.style.display = 'none';
+        });
+
+        // ========== ORDER BUTTONS ==========
+        document.querySelectorAll('.order-now-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cakeName = this.getAttribute('data-cake');
+                const cakeCard = this.closest('.cake-card');
+                const selectedSize = cakeCard.querySelector('.size-option.selected');
+                
+                if (selectedSize) {
+                    const weight = selectedSize.getAttribute('data-weight');
+                    const price = selectedSize.getAttribute('data-price');
+                    const servings = selectedSize.getAttribute('data-servings');
+                    
+                    const message = `Hello Goshen Cake Haven! I would like to order ${cakeName} (${weight}kg - KSh ${price}) which serves ${servings} people. Please let me know if it's available for pickup/delivery in Maseno.`;
+                    
+                    if (confirm(`Order ${cakeName} (${weight}kg) for KSh ${price}?`)) {
+                        openWhatsApp(message);
+                    }
+                } else {
+                    alert('Please select a cake size first!');
+                }
+            });
+        });
+
+        // ========== CONTACT FORM ==========
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = `*New Inquiry from Goshen Cake Haven Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Message:* ${message}`;
+            
+            if (confirm('Send this message via WhatsApp?')) {
+                openWhatsApp(whatsappMessage);
+                e.target.reset();
+            }
+        });
+
+        // ========== VIDEO BACKGROUND HANDLING ==========
+        const video = document.getElementById('hero-video');
+        const fallback = document.getElementById('videoFallback');
+
+        video.addEventListener('error', () => {
+            fallback.style.display = 'block';
+        });
+
+        video.play().catch(() => {
+            fallback.style.display = 'block';
+        });
+
+        // ========== CONSOLE MESSAGE ==========
+        console.log('Goshen Cake Haven website loaded successfully! 🍰');
+        console.log('WhatsApp integration active! 📱');
+        console.log('Video background active! 🎥');
+        console.log('Cake details modal ready! 📋');
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goshen Cake Haven - Delicious Cakes in Maseno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fff9f0;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Cake Pattern Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 223, 186, 0.3) 0%, transparent 20%),
+                radial-gradient(circle at 90% 70%, rgba(255, 223, 186, 0.3) 0%, transparent 25%),
+                radial-gradient(circle at 30% 80%, rgba(255, 223, 186, 0.25) 0%, transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(255, 223, 186, 0.25) 0%, transparent 25%),
+                repeating-linear-gradient(45deg, rgba(255, 223, 186, 0.1) 0px, rgba(255, 223, 186, 0.1) 2px, transparent 2px, transparent 10px),
+                repeating-linear-gradient(135deg, rgba(255, 223, 186, 0.1) 0px, rgba(255, 223, 186, 0.1) 2px, transparent 2px, transparent 10px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Additional cake decorations */
+        .cake-decoration {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cake-decoration-2 {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            font-size: 4rem;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 70%;
+        }
+
+        /* Hero Section with Video */
+        .hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 5%;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Cake Size Selector */
+        .cake-size-selector {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .size-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .size-option {
+            background: #fff9f0;
+            border: 2px solid #8b5a2b;
+            border-radius: 10px;
+            padding: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .size-option:hover {
+            background: #8b5a2b;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .size-option.selected {
+            background: #8b5a2b;
+            color: white;
+            border-color: #ff6b6b;
+        }
+
+        .size-option .weight {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .size-option .price {
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Featured Cakes Section */
+        .featured-cakes {
+            padding: 5rem 5%;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8b5a2b;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5a2b, #ff6b6b);
+            border-radius: 3px;
+        }
+
+        .cake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cake-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(139, 90, 43, 0.1);
+        }
+
+        .cake-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(139, 90, 43, 0.3);
+        }
+
+        .cake-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cake-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .cake-card:hover .cake-image img {
+            transform: scale(1.1);
+        }
+
+        .cake-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .cake-info h3 {
+            font-size: 1.5rem;
+            color: #8b5a2b;
+            margin-bottom: 0.5rem;
+        }
+
+        .cake-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cake-details {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .cake-detail-item {
+            background: #fff9f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #8b5a2b;
+            border: 1px solid #8b5a2b;
+        }
+
+        /* Price Table */
+        .price-table {
+            background: #fff9f0;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 2px dashed #8b5a2b;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-row .size {
+            font-weight: bold;
+            color: #8b5a2b;
+        }
+
+        .price-row .price {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .price-row .price::before {
+            content: 'KSh ';
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .order-now-btn {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        .order-now-btn:hover {
+            background: linear-gradient(135deg, #a9754b 0%, #8b5a2b 100%);
+            transform: scale(0.98);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(255, 249, 240, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+            backdrop-filter: blur(5px);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139, 90, 43, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 90, 43, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 {
+            color: #8b5a2b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(139, 90, 43, 0.1);
+        }
+
+        .contact-info {
+            padding: 1.5rem;
+        }
+
+        .contact-info h3 {
+            color: #8b5a2b;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-details h4 {
+            color: #333;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .contact-details a {
+            color: #8b5a2b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #ff6b6b;
+        }
+
+        .location-highlight {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .location-highlight i {
+            margin-right: 0.5rem;
+        }
+
+        .contact-form {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8b5a2b;
+            box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a9754b 100%);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #a9754b 0%, #8b5a2b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c1810 0%, #3d2a1c 100%);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                line-height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .size-options {
+                grid-template-columns: 1fr;
+            }
+
+            .cake-details {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .cake-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Active link state */
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e0d5c5 0%, #d4c5b2 100%);
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5a2b;
+            font-weight: bold;
+            border: 2px dashed #8b5a2b;
+        }
+
+        /* Video fallback message */
+        .video-fallback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            z-index: 2;
+        }
+
+        /* Price List Badge */
+        .price-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* Modal for cake details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 20px;
+            animation: modalFadeIn 0.5s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8b5a2b;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #ff6b6b;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: #8b5a2b;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .modal-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-detail-item {
+            background: #fff9f0;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-detail-label {
+            font-weight: bold;
+            color: #8b5a2b;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-detail-value {
+            color: #ff6b6b;
+        }
+
+        .modal-price-table {
+            margin: 1.5rem 0;
+        }
+
+        .modal-price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-price-row:last-child {
+            border-bottom: none;
+        }
+
+        .view-details-btn {
+            background: transparent;
+            border: 2px solid #8b5a2b;
+            color: #8b5a2b;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .view-details-btn:hover {
+            background: #8b5a2b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cake Background Decorations -->
+    <div class="cake-decoration">🍰</div>
+    <div class="cake-decoration-2">🎂</div>
+
+    <nav>
+        <div class="logo">🍰 Goshen Cake Haven</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#cakes">Cakes</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero">
+            <!-- Video Background -->
+            <video id="hero-video" autoplay muted loop playsinline>
+                <source src="https://player.vimeo.com/external/371837261.sd.mp4?s=5b2c9f47d9a6a2b6e3f3c3f3c3f3c3f3&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+            
+            <div class="video-fallback" id="videoFallback" style="display: none;">
+                <p>Experience our delicious cakes in person at Maseno! 🍰</p>
+            </div>
+            
+            <div class="hero-content">
+                <h1>Welcome to Goshen Cake Haven</h1>
+                <p>Maseno's Finest Bakery - Where every slice is a taste of heaven! ✨</p>
+                <a href="#cakes" class="cta-button">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="whatsapp-float" id="whatsappButton" target="_blank">
+        <i>📱</i>
+    </a>
+
+    <!-- Modal for Cake Details -->
+    <div id="cakeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="Cake">
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <p id="modalDescription" class="modal-description"></p>
+            
+            <div id="modalDetails" class="modal-details"></div>
+            
+            <h3 style="color: #8b5a2b; margin-bottom: 1rem;">Price List</h3>
+            <div id="modalPriceTable" class="modal-price-table"></div>
+            
+            <button id="modalOrderBtn" class="order-now-btn" style="margin-top: 1.5rem;">Order Now via WhatsApp</button>
+        </div>
+    </div>
+
+    <section id="cakes" class="featured-cakes">
+        <h2 class="section-title">Our Heavenly Creations</h2>
+        <div class="cake-grid">
+            <!-- Cake 1: Divine Chocolate -->
+            <div class="cake-card" id="cake1">
+                <div class="price-badge">Best Seller</div>
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Chocolate Cake">
+                </div>
+                <div class="cake-info">
+                    <h3>🍫 Divine Chocolate</h3>
+                    <p class="cake-description">Rich, moist chocolate cake with velvety ganache. Perfect for chocolate lovers!</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">🍫 Belgian Chocolate</span>
+                        <span class="cake-detail-item">🥚 Free-range Eggs</span>
+                        <span class="cake-detail-item">🌿 Vanilla Essence</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Divine Chocolate">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake1")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Divine Chocolate">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 2: Red Velvet Dream -->
+            <div class="cake-card" id="cake2">
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=800&q=80" alt="Red Velvet">
+                </div>
+                <div class="cake-info">
+                    <h3>❤️ Red Velvet Dream</h3>
+                    <p class="cake-description">Classic red velvet with cream cheese frosting. A perfect balance of sweetness and tanginess.</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">❤️ Red Velvet Color</span>
+                        <span class="cake-detail-item">🧀 Cream Cheese</span>
+                        <span class="cake-detail-item">🌿 Natural Flavor</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Red Velvet Dream">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake2")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Red Velvet Dream">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 3: Celebration Special -->
+            <div class="cake-card" id="cake3">
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80" alt="Birthday Cake">
+                </div>
+                <div class="cake-info">
+                    <h3>🎉 Celebration Special</h3>
+                    <p class="cake-description">Colorful sprinkles and vanilla buttercream. Perfect for birthdays and special occasions!</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">🎨 Colorful Sprinkles</span>
+                        <span class="cake-detail-item">🧁 Vanilla Buttercream</span>
+                        <span class="cake-detail-item">🕯️ Candle Included</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Celebration Special">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake3")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Celebration Special">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 4: Fresh Fruit Fantasy -->
+            <div class="cake-card" id="cake4">
+                <div class="cake-image">
+                    <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=800&q=80" alt="Fruit Cake">
+                </div>
+                <div class="cake-info">
+                    <h3>🍓 Fresh Fruit Fantasy</h3>
+                    <p class="cake-description">Light sponge topped with fresh seasonal fruits. A healthy and delicious choice!</p>
+                    
+                    <div class="cake-details">
+                        <span class="cake-detail-item">🍓 Fresh Strawberries</span>
+                        <span class="cake-detail-item">🍌 Fresh Bananas</span>
+                        <span class="cake-detail-item">🍊 Citrus Zest</span>
+                    </div>
+                    
+                    <!-- Price Table -->
+                    <div class="price-table">
+                        <div class="price-row">
+                            <span class="size">0.25 kg (Small - 2-3 people)</span>
+                            <span class="price">500</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">0.5 kg (Medium - 4-6 people)</span>
+                            <span class="price">1,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">1 kg (Large - 8-10 people)</span>
+                            <span class="price">2,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size">2 kg (Family - 15-20 people)</span>
+                            <span class="price">4,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="cake-size-selector">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Select Size:</div>
+                        <div class="size-options" data-cake="Fresh Fruit Fantasy">
+                            <div class="size-option" data-weight="0.25" data-price="500" data-servings="2-3">
+                                <div class="weight">0.25 kg</div>
+                                <div class="price">KSh 500</div>
+                                <small>2-3 people</small>
+                            </div>
+                            <div class="size-option" data-weight="0.5" data-price="1000" data-servings="4-6">
+                                <div class="weight">0.5 kg</div>
+                                <div class="price">KSh 1,000</div>
+                                <small>4-6 people</small>
+                            </div>
+                            <div class="size-option" data-weight="1" data-price="2000" data-servings="8-10">
+                                <div class="weight">1 kg</div>
+                                <div class="price">KSh 2,000</div>
+                                <small>8-10 people</small>
+                            </div>
+                            <div class="size-option" data-weight="2" data-price="4500" data-servings="15-20">
+                                <div class="weight">2 kg</div>
+                                <div class="price">KSh 4,500</div>
+                                <small>15-20 people</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="view-details-btn" onclick='showCakeDetails("cake4")'>📋 View Full Details</button>
+                    <button class="order-now-btn" data-cake="Fresh Fruit Fantasy">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎂</div>
+                <h3>Custom Cakes</h3>
+                <p>Personalized cakes for any occasion - birthdays, weddings, anniversaries</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Free Delivery</h3>
+                <p>Complimentary delivery within Maseno for orders above KSh 2,000</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Cake Design</h3>
+                <p>Work with our expert bakers to create your dream cake</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎉</div>
+                <h3>Catering</h3>
+                <p>Full dessert catering for events and parties in Maseno</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p><a href="tel:0708594216">0708 594 216</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p><a href="mailto:goshencakehaven@gmail.com">goshencakehaven@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h4>WhatsApp</h4>
+                        <p><a href="#" id="whatsappContactLink">Chat on WhatsApp</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <p><strong>Maseno Town</strong><br>Near Maseno Main Campus<br>Along Kisumu-Busia Highway</p>
+                    </div>
+                </div>
+                <div class="location-highlight">
+                    <i>📍</i> Just 2 minutes from Maseno Main Campus!
+                </div>
+                <div class="map-placeholder">
+                    🗺️ Google Maps Location - Maseno Town, Near Main Campus
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div class="contact-details">
+                        <h4>Hours</h4>
+                        <p>Mon-Sat: 8am - 8pm<br>Sunday: 10am - 4pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Goshen Cake Haven - Maseno Town | Near Maseno Main Campus, Along Kisumu-Busia Highway</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Where every cake is baked with love ❤️ in Maseno</p>
+    </footer>
+
+    <!-- JavaScript Code -->
+    <script>
+        // ========== MOBILE MENU TOGGLE ==========
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // ========== SMOOTH SCROLL FOR NAVIGATION ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // ========== HIGHLIGHT ACTIVE NAVIGATION LINK ==========
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ========== WHATSAPP INTEGRATION ==========
+        const phoneNumber = '0708594216';
+        const formattedPhone = '254' + phoneNumber.substring(1);
+
+        function openWhatsApp(message = '') {
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Floating WhatsApp button
+        document.getElementById('whatsappButton').addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsApp('Hello Goshen Cake Haven! I would like to inquire about your cakes. 🍰');
+        });
+
+        // WhatsApp link in contact section
+        document.getElementById('whatsappContactLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsApp('Hello Goshen Cake Haven! I saw your website and would like to know more about your products.');
+        });
+
+        // ========== SIZE SELECTOR FUNCTIONALITY ==========
+        document.querySelectorAll('.size-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('.size-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        // ========== CAKE DETAILS MODAL ==========
+        const modal = document.getElementById('cakeModal');
+        const closeModal = document.querySelector('.close-modal');
+
+        // Cake data for modal
+        const cakeData = {
+            cake1: {
+                title: '🍫 Divine Chocolate',
+                image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
+                description: 'Our signature Divine Chocolate cake is a chocolate lover\'s paradise! Made with premium Belgian chocolate, this cake features three layers of moist chocolate sponge, filled with rich chocolate ganache, and covered in a silky smooth chocolate buttercream. Each bite is an explosion of deep, rich chocolate flavor that melts in your mouth.',
+                details: [
+                    { label: 'Flavor', value: 'Belgian Chocolate' },
+                    { label: 'Filling', value: 'Chocolate Ganache' },
+                    { label: 'Frosting', value: 'Chocolate Buttercream' },
+                    { label: 'Shelf Life', value: '3-4 days refrigerated' },
+                    { label: 'Allergens', value: 'Contains gluten, dairy, eggs' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            },
+            cake2: {
+                title: '❤️ Red Velvet Dream',
+                image: 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=800&q=80',
+                description: 'Our Red Velvet Dream is a classic Southern favorite with a hint of cocoa and a striking red color. The cake is incredibly moist and tender, with a subtle tang from buttermilk and a hint of vanilla. It\'s paired with our signature cream cheese frosting that\'s perfectly sweet and tangy, creating a beautiful balance of flavors.',
+                details: [
+                    { label: 'Flavor', value: 'Red Velvet with Cocoa' },
+                    { label: 'Filling', value: 'Cream Cheese Frosting' },
+                    { label: 'Frosting', value: 'Cream Cheese' },
+                    { label: 'Shelf Life', value: '3-4 days refrigerated' },
+                    { label: 'Allergens', value: 'Contains gluten, dairy, eggs' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            },
+            cake3: {
+                title: '🎉 Celebration Special',
+                image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80',
+                description: 'Make your celebration extra special with our Celebration Special cake! This fun and festive cake features a light and fluffy vanilla sponge, layered with silky vanilla buttercream, and covered in colorful sprinkles. It\'s the perfect centerpiece for birthdays, anniversaries, or any happy occasion. Each cake comes with a complimentary birthday candle.',
+                details: [
+                    { label: 'Flavor', value: 'Vanilla' },
+                    { label: 'Filling', value: 'Vanilla Buttercream' },
+                    { label: 'Topping', value: 'Rainbow Sprinkles' },
+                    { label: 'Shelf Life', value: '3-4 days refrigerated' },
+                    { label: 'Extras', value: 'Free candle included' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            },
+            cake4: {
+                title: '🍓 Fresh Fruit Fantasy',
+                image: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=800&q=80',
+                description: 'Our Fresh Fruit Fantasy is a light and refreshing option for fruit lovers! The cake features a delicate vanilla sponge, layered with light whipped cream, and topped with an abundance of fresh seasonal fruits including strawberries, blueberries, kiwis, and mangoes. It\'s the perfect choice for those who prefer a less sweet, more natural dessert option.',
+                details: [
+                    { label: 'Flavor', value: 'Vanilla with Fresh Fruits' },
+                    { label: 'Filling', value: 'Whipped Cream' },
+                    { label: 'Topping', value: 'Assorted Fresh Fruits' },
+                    { label: 'Shelf Life', value: '2-3 days refrigerated' },
+                    { label: 'Seasonal', value: 'Fruits vary by season' }
+                ],
+                prices: [
+                    { size: '0.25 kg (Small - 2-3 people)', price: '500' },
+                    { size: '0.5 kg (Medium - 4-6 people)', price: '1,000' },
+                    { size: '1 kg (Large - 8-10 people)', price: '2,000' },
+                    { size: '2 kg (Family - 15-20 people)', price: '4,500' }
+                ]
+            }
+        };
+
+        // Function to show cake details in modal
+        window.showCakeDetails = function(cakeId) {
+            const cake = cakeData[cakeId];
+            
+            document.getElementById('modalImage').src = cake.image;
+            document.getElementById('modalTitle').textContent = cake.title;
+            document.getElementById('modalDescription').textContent = cake.description;
+            
+            // Display details
+            const detailsContainer = document.getElementById('modalDetails');
+            detailsContainer.innerHTML = '';
+            cake.details.forEach(detail => {
+                const detailDiv = document.createElement('div');
+                detailDiv.className = 'modal-detail-item';
+                detailDiv.innerHTML = `
+                    <div class="modal-detail-label">${detail.label}</div>
+                    <div class="modal-detail-value">${detail.value}</div>
+                `;
+                detailsContainer.appendChild(detailDiv);
+            });
+            
+            // Display price table
+            const priceContainer = document.getElementById('modalPriceTable');
+            priceContainer.innerHTML = '';
+            cake.prices.forEach(price => {
+                const priceRow = document.createElement('div');
+                priceRow.className = 'modal-price-row';
+                priceRow.innerHTML = `
+                    <span>${price.size}</span>
+                    <span style="color: #ff6b6b; font-weight: bold;">KSh ${price.price}</span>
+                `;
+                priceContainer.appendChild(priceRow);
+            });
+            
+            modal.style.display = 'block';
+        };
+
+        // Close modal when clicking X
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        };
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        // Modal order button
+        document.getElementById('modalOrderBtn').addEventListener('click', function() {
+            const cakeTitle = document.getElementById('modalTitle').textContent;
+            openWhatsApp(`Hello Goshen Cake Haven! I would like to order ${cakeTitle}. Please provide more information.`);
+            modal.style.display = 'none';
+        });
+
+        // ========== ORDER BUTTONS ==========
+        document.querySelectorAll('.order-now-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cakeName = this.getAttribute('data-cake');
+                const cakeCard = this.closest('.cake-card');
+                const selectedSize = cakeCard.querySelector('.size-option.selected');
+                
+                if (selectedSize) {
+                    const weight = selectedSize.getAttribute('data-weight');
+                    const price = selectedSize.getAttribute('data-price');
+                    const servings = selectedSize.getAttribute('data-servings');
+                    
+                    const message = `Hello Goshen Cake Haven! I would like to order ${cakeName} (${weight}kg - KSh ${price}) which serves ${servings} people. Please let me know if it's available for pickup/delivery in Maseno.`;
+                    
+                    if (confirm(`Order ${cakeName} (${weight}kg) for KSh ${price}?`)) {
+                        openWhatsApp(message);
+                    }
+                } else {
+                    alert('Please select a cake size first!');
+                }
+            });
+        });
+
+        // ========== CONTACT FORM ==========
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = `*New Inquiry from Goshen Cake Haven Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Message:* ${message}`;
+            
+            if (confirm('Send this message via WhatsApp?')) {
+                openWhatsApp(whatsappMessage);
+                e.target.reset();
+            }
+        });
+
+        // ========== VIDEO BACKGROUND HANDLING ==========
+        const video = document.getElementById('hero-video');
+        const fallback = document.getElementById('videoFallback');
+
+        video.addEventListener('error', () => {
+            fallback.style.display = 'block';
+        });
+
+        video.play().catch(() => {
+            fallback.style.display = 'block';
+        });
+
+        // ========== CONSOLE MESSAGE ==========
+        console.log('Goshen Cake Haven website loaded successfully! 🍰');
+        console.log('WhatsApp integration active! 📱');
+        console.log('Video background active! 🎥');
+        console.log('Cake details modal ready! 📋');
+    </script>
+</body>
+</html>
